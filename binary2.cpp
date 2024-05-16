@@ -1,51 +1,31 @@
 #include<iostream>
 using namespace std;
-int Binarysearch (int arr[], int size,int key)
-{
-	int start=0;
-	int end=size-1;
-	int mid=start+(end-start)/2
-	while(start<=end)
-	{
-		if(arr[mid] ==key)
-		{
-			return mid;
-		}
-		//traverse right side
-		else if(key>arr[mid])
-		{
-			start+=1;
-		}
-		//key<arr[mid] so traverse left side
-		else
-		{
-			end-=1;
-		}
-		mid=start+(end-start)/2;
-	}
-	return -1;
-}
 
 int main()
 {
-	int m;
-	cin>>m;
-	int arr1[100];
-	for(int i=0;i<m;i++)
-	{
-		cin>>arr1[i];
-	}
-	
-	
-	int key;
-	cin>>key;
-	for(int i=0;i<m;i++)
-	{
-		cout<<arr1[i];
-	}cout<<endl;
-	
-	
-	int result=Binarysearch(arr1,m,key);
-	cout<<"index of key is: "<<result;
-	
+    int arr[1000];
+    int n;
+    cout<<"enter the size of array";
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    int s=0,e=n-1;
+    int mid= s+ (e-s)/2;
+    while (s<e)
+    {
+        /* code */
+        if(arr[mid]<arr[mid+1])
+        {
+            s=mid+1;
+        }
+        else{
+            e=mid;
+        }
+        mid=s+(e-s)/2;
+    }
+    cout<<"the peak index is "<<s<<endl<<"the peak value is"<<arr[s];
+
+    
 }
